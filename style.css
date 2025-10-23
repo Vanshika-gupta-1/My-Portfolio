@@ -1,0 +1,711 @@
+/* --- Variables and Base Styles for Dark Theme --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+
+:root {
+    --primary-purple: #8e44ad; /* Main highlight color */
+    --secondary-purple: #9b59b6; /* Lighter highlight/button color */
+    --background-dark: #1f142b; /* Deep dark purple/black */
+    --card-background: #2b1d3d; /* Slightly lighter dark for cards */
+    --section-dark: #1a1023; /* Dark background for alternate sections (About, Projects) */
+    --text-light: #f0f0f0;
+    --text-highlight: #b69cd9; /* Subdued highlight text */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --icon-bg: #8e44ad;
+    --skill-item-bg: rgba(255, 255, 255, 0.08);
+    --skill-item-hover-bg: rgba(255, 255, 255, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-light);
+    background-color: var(--background-dark);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* --- Header/Navigation --- */
+header {
+    background: rgba(43, 29, 61, 0.95);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-purple);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 5px 0;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--secondary-purple);
+    border-bottom: 2px solid var(--secondary-purple);
+}
+
+/* --- Hero Section (Front Page Look) --- */
+.hero-section {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1f142b 0%, #301947 50%, #1f142b 100%);
+    overflow: hidden;
+}
+
+.hero-content-container {
+    flex: 1;
+    padding: 5% 5% 5% 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-image-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
+}
+
+.availability-badge {
+    background: rgba(142, 68, 173, 0.2);
+    color: var(--text-highlight);
+    padding: 5px 10px;
+    border-radius: 20px;
+    width: fit-content;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.name-heading {
+    font-family: var(--font-heading);
+    font-size: 5.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0 0 10px 0;
+}
+
+.highlight-text {
+    color: var(--secondary-purple);
+    display: block;
+}
+
+.transition-text {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 15px 0 30px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.highlight-pm {
+    color: var(--primary-purple);
+    font-weight: 700;
+}
+
+.taglines p {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin: 5px 0;
+    color: var(--text-highlight);
+}
+.taglines p:first-child {
+    border-left: 3px solid var(--primary-purple);
+    padding-left: 10px;
+    margin-top: 20px;
+}
+
+.action-buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.primary-btn {
+    background-color: var(--secondary-purple);
+    color: var(--text-light);
+    border: 2px solid var(--secondary-purple);
+}
+
+.primary-btn:hover {
+    background-color: #7d3c98;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--text-light);
+    border: 2px solid var(--text-highlight);
+}
+
+.secondary-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(1.1) brightness(0.9);
+}
+
+.hero-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, var(--background-dark), transparent 50%);
+}
+
+.image-overlay-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--text-light);
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* --- Social Links in Hero Section --- */
+.social-links-hero {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: var(--text-light);
+    background-color: var(--card-background); /* Dark background for buttons */
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.social-link:hover {
+    background-color: var(--secondary-purple); /* Purple on hover */
+    color: #fff;
+    transform: scale(1.1);
+}
+
+
+/* --- General Section Styling --- */
+.section {
+    padding: 80px 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--primary-purple);
+    position: relative;
+    font-family: var(--font-heading);
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--primary-purple);
+    margin: 10px auto 0;
+}
+
+/* --- About Me Section Styling --- */
+.about-me-section {
+    background-color: var(--section-dark);
+    padding: 80px 0 40px 0;
+}
+
+.about-me-section h2 {
+    color: var(--text-light);
+    margin-bottom: 60px;
+}
+.about-me-section h2::after {
+    background: var(--primary-purple);
+}
+
+.timeline-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.timeline-card {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.timeline-icon {
+    background-color: var(--primary-purple);
+    color: var(--text-light);
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    margin-right: 15px;
+}
+
+.timeline-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.timeline-list {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-list li {
+    margin-bottom: 20px;
+    padding-left: 0;
+    position: relative;
+}
+
+.timeline-list li::before {
+    content: "\2022";
+    color: var(--secondary-purple);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em; 
+    position: absolute;
+    left: 0;
+}
+
+.timeline-institution {
+    font-weight: bold;
+    color: var(--text-light);
+    margin-bottom: 3px;
+    padding-left: 1em;
+}
+
+.timeline-detail {
+    font-size: 0.95rem;
+    color: var(--text-highlight);
+    padding-left: 1em;
+}
+
+.bio-statement {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 40px;
+    text-align: center;
+}
+
+.bio-statement p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* --- Skills & Tools Section Styling --- */
+.skills-tools-section {
+    background-color: var(--background-dark);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.skills-heading {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.skills-subheading {
+    font-size: 1.2rem;
+    color: var(--text-highlight);
+    margin-bottom: 60px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skill-category-card {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.skill-category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-icon {
+    background-color: var(--icon-bg);
+    color: var(--text-light);
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.skill-category-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.skill-list li {
+    background-color: var(--skill-item-bg);
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    color: var(--text-light);
+    transition: background-color 0.2s ease;
+    text-align: left;
+}
+
+.skill-list li:hover {
+    background-color: var(--skill-item-hover-bg);
+}
+
+/* --- Projects Section Specifics --- */
+#projects {
+    background-color: var(--section-dark);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--card-background);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+.project-card h3 {
+    color: var(--secondary-purple);
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: var(--text-highlight);
+    margin-bottom: 15px;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 15px;
+    color: var(--secondary-purple);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.project-link:hover {
+    color: #fff;
+}
+
+/* --- NEW Achievements Section Styles --- */
+#achievements {
+    background-color: var(--background-dark); /* Same as main background */
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.achievement-card {
+    background: var(--card-background);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    border-top: 5px solid var(--secondary-purple); /* Highlight stripe */
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.achievement-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--secondary-purple); /* Icon color */
+}
+
+.achievement-card h3 {
+    color: var(--text-light);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.achievement-card p {
+    font-size: 0.95rem;
+    color: var(--text-highlight);
+    margin-bottom: 15px;
+}
+
+.achievement-card .project-link {
+    font-size: 0.9rem;
+    color: var(--primary-purple);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.achievement-card .project-link:hover {
+    color: var(--text-light);
+}
+/* --- END NEW Achievements Section Styles --- */
+
+
+/* --- Contact Form --- */
+#contact {
+    background-color: var(--section-dark); /* Using the alternate dark color for contrast */
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--text-light);
+    font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-purple);
+    outline: none;
+}
+
+.cta-button {
+    background: var(--secondary-purple);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background: #7d3c98;
+}
+
+.contact-note {
+    font-size: 0.8rem;
+    color: var(--text-highlight);
+    margin-top: 15px;
+    text-align: center;
+}
+
+.email-info {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--text-highlight);
+}
+
+.email-info a {
+    color: var(--primary-purple);
+    text-decoration: none;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--background-dark);
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: var(--text-highlight);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    /* Hero */
+    .hero-section {
+        flex-direction: column;
+        min-height: auto;
+    }
+    .hero-content-container {
+        padding: 40px 5%;
+    }
+    .name-heading {
+        font-size: 3.5rem;
+    }
+    .highlight-text {
+        display: inline;
+    }
+    .hero-image-container {
+        min-height: 400px;
+    }
+    .action-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .social-links-hero {
+        justify-content: center;
+    }
+    
+    /* Navigation */
+    nav ul {
+        display: none;
+    }
+
+    /* About, Skills, Projects, Achievements */
+    .timeline-grid,
+    .skills-grid,
+    .project-grid,
+    .achievement-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    /* General */
+    .section {
+        padding: 60px 0;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+}
