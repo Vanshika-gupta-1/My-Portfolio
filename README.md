@@ -116,7 +116,7 @@ open index.html
 
 👩 Vanshika Gupta
 
-📧 Email: your-email@example.com
+📧 Email: mahajanvanshika47@example.com
 
 💼 LinkedIn
 
